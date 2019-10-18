@@ -1,11 +1,14 @@
 import React ,{Component} from 'react'
 import './admin.less'
+
+import CustomNav from '../customNav/index'
+
 class Admin extends Component{
     render(){
         return(
             <div className='admin'>
                 <div className='admin-nav'>
-                    侧边栏
+                    <CustomNav></CustomNav>
                 </div>
                 <div className='admin-content'>
                     <div>头部信息</div>

@@ -18,7 +18,7 @@ class CustomNav extends Component{
         return data.map((item,index)=>{
             if(item.childen){
                 return(
-                    <SubMenu title={item.name}>
+                    <SubMenu key={index} title={item.name}>
                         {this.renderItem(item.childen)}
                     </SubMenu>
                 )
