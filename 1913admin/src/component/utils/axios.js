@@ -1,4 +1,6 @@
 import axios from 'axios'
+import store from '../../store/store'
+import actionCreator from '../../store/actionCreator'
 // Add a request interceptor
 axios.interceptors.request.use(function (config) {
     // Do something before request is sent
@@ -11,6 +13,8 @@ axios.interceptors.request.use(function (config) {
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
     // Do something with response data
+    let action = actionCreator.changeTokenModel(true)
+    store.dispatch(action)
     return response;
   }, function (error) {
     // Do something with response error
