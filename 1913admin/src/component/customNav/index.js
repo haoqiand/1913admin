@@ -3,8 +3,8 @@ import {withRouter} from 'react-router-dom'
 import { Menu} from 'antd';
 const { SubMenu } = Menu;
 let navDate = [
-    {name:'首页',path:'/home'},
-    {name:'设置',path:'/setting'},
+    {name:'首页',path:'/admin/home'},
+    {name:'设置',path:'/admin/setting'},
     {name:'用户管理',
         path:'/user',
         childen:[
@@ -14,6 +14,11 @@ let navDate = [
     },
 ]
 class CustomNav extends Component{
+    jump=(path)=>{
+        // console.log(path);
+        // console.log(this);
+        this.props.history.push(path)
+    }
     renderItem=(data)=>{
         return data.map((item,index)=>{
             if(item.childen){
@@ -23,7 +28,7 @@ class CustomNav extends Component{
                     </SubMenu>
                 )
             }else{
-                return <Menu.Item >{item.name}</Menu.Item>
+                return <Menu.Item onClick={this.jump.bind(this,item.path)}>{item.name}</Menu.Item>
             }
         })
     }

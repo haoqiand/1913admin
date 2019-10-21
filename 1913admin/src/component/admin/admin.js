@@ -1,12 +1,13 @@
 import React ,{Component} from 'react'
 import './admin.less'
-
+import TokenModel from '../model/token'
 import CustomNav from '../customNav/index'
 
 class Admin extends Component{
     render(){
         return(
             <div className='admin'>
+                <TokenModel></TokenModel>
                 <div className='admin-nav'>
                     <CustomNav></CustomNav>
                 </div>

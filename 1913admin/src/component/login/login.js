@@ -1,6 +1,7 @@
 import React ,{Component} from 'react'
 import { Form, Icon, Input, Button, Checkbox ,Card,message} from 'antd';
 import '../../../node_modules/antd/dist/antd.css'
+import './login.less'
 class Login extends Component{
     submit=()=>{
         console.log('登录')
@@ -8,6 +9,10 @@ class Login extends Component{
             if(err){
                 message.error('输入信息有误，请重新输入')
             }else{
+                this.$axios.get('/yapi/admin/login',{us:123,ps:123})
+                .then((data)=>{
+                    console.log(data)
+                })
                 message.success('登录成功1s后跳转到首页',1,()=>{
                     this.props.history.push('/admin')
                 })
@@ -21,6 +26,7 @@ class Login extends Component{
         console.log(this)
         let { getFieldDecorator } = this.props.form;
         return(
+            <div className='login-box'>
             <Card style={{width:'300px',position:'fixed',top:'20vh',right:'80px'}}>
             <Form className="login-form">
                 <Form.Item>
@@ -58,6 +64,7 @@ class Login extends Component{
                 </Form.Item>
             </Form>
             </Card>
+            </div>
         )
     }
 }
